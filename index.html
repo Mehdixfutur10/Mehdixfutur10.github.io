@@ -1089,7 +1089,7 @@
                 <div class="hero-content">
                     <div class="hero-badge">
                         <span class="badge-dot"></span>
-                        <span>Professional Profile</span>
+                        <span>LinkedIn Profile</span>
                     </div>
                     <h1>MEHDI</h1>
                     <h2>Enterprise Infrastructure Architect</h2>
@@ -1099,7 +1099,11 @@
                         <button class="btn btn-secondary" onclick="app.downloadCV()">Download CV</button>
                     </div>
                     <div class="hero-image">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Mehdi Profile" class="profile-picture">
+                        <img src="https://via.placeholder.com/400x400/02030b/00f0ff?text=LinkedIn+Photo" alt="LinkedIn profile placeholder" class="profile-picture">
+                        <div style="margin-top: 18px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+                            <a href="https://www.linkedin.com/in/el-mehdi-bammou-1b98183b0" target="_blank" rel="noreferrer" class="btn btn-secondary">View LinkedIn</a>
+                            <span style="font-size:12px; color:var(--text-tertiary);">Replace with your real photo when available</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1165,10 +1169,7 @@
         <div class="footer-content">
             <div class="footer-text">© 2024 Mehdi | Enterprise Infrastructure Solutions</div>
             <p>Built with Vanilla JavaScript • Modern Web Standards • High Performance</p>
-        </div>
-    </footer>
-
-    <script>
+                <p style="margin-top:12px; color:var(--text-secondary);">LinkedIn: <a href="https://www.linkedin.com/in/el-mehdi-bammou-1b98183b0" target="_blank" rel="noreferrer" style="color:var(--primary); text-decoration:none;">linkedin.com/in/el-mehdi-bammou-1b98183b0</a></p>
         // ====== TYPE-SAFE APPLICATION STATE ====== 
         const app = {
             isAnimationActive: true,
@@ -1561,7 +1562,23 @@
         };
 
         // Initialize on load
-        document.addEventListener('DOMContentLoaded', () => app.init());
+        document.addEventListener('DOMContentLoaded', () => {
+            app.init();
+            
+            // Lightbox close on outside click
+            document.getElementById('lightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'lightbox') {
+                    app.closeLightbox();
+                }
+            });
+            
+            // Close lightbox on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    app.closeLightbox();
+                }
+            });
+        });
     </script>
 </body>
 </html>
